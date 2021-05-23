@@ -12,9 +12,15 @@
 
 (define (pyenv-root) (string-append (getenv "HOME") "/.pyenv"))
 
-(define (pyenv-virtualenvs) 
-  (string-split
-   (var-eval-system "pyenv virtualenvs --bare --skip-aliases") #\nl))
+(define (pyenv-command)
+  (string-append (pyenv-root) "/bin/pyenv"))
+
+(define (pyenv-virtualenvs)
+  (with virtualenvs
+        (string-append
+         (pyenv-command) " virtualenvs --bare --skip-aliases")
+   (string-split
+    (var-eval-system virtualenvs) #\nl)))
 
 (define (pyenv-which-python env)
   (string-append (pyenv-root) "/versions/" env "/bin/python"))
@@ -30,7 +36,7 @@
     (other-pyenv-launchers)))
 
 (plugin-configure python 
-  (:require (url-exists-in-path? "pyenv"))
+  (:require (url-exists? (pyenv-command)))
   (:versions (pyenv-virtualenvs))
   ,@(pyenv-launchers)
   (:serializer ,python-serialize)
