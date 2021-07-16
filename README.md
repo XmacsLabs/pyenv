@@ -2,10 +2,10 @@
 ## Installation
 ```
 # For GNU/Linux or macOS
-git clone https://gitee.com/sadhen/pyenv.git $HOME/.TeXmacs/plugins/pyenv
+git clone https://gitee.com/XmacsLabs/pyenv.git $HOME/.TeXmacs/plugins/pyenv
 
 # For Windows
-git clone https://gitee.com/sadhen/pyenv.git %APPDATA%\TeXmacs\plugins\pyenv
+git clone https://gitee.com/XmacsLabs/pyenv.git %APPDATA%\TeXmacs\plugins\pyenv
 ```
 
 Installed under `TEXMACS_HOME_PATH`, this enhanced python plugin will
