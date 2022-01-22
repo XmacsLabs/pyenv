@@ -20,7 +20,7 @@
         (string-append
          (pyenv-command) " virtualenvs --bare --skip-aliases")
    (string-split
-    (var-eval-system virtualenvs) #\nl)))
+    (var-eval-system virtualenvs) #\newline)))
 
 (define (pyenv-which-python env)
   (string-append (pyenv-root) "/versions/" env "/bin/python"))
